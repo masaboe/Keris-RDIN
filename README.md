@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Keris-RDIN
 Keris-RDIN: end-to-end pipeline for keris image classification with mask-aware preprocessing, augmentation, and reproducible CSV evaluation (private dataset).
 =======
@@ -131,4 +130,3 @@ See `LICENSE` and `THIRD_PARTY_NOTICES.md`.
 
 ## Citation
 If you use this repository, please cite the associated manuscript (to be added).
->>>>>>> 5ac7bb5 (Initial commit)
