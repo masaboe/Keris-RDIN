@@ -1,0 +1,16 @@
+# Stage 03b - YOLO crop bilah
+seed: 42
+
+data:
+  input_dir: data/baselineNoBgWhite
+  output_dir: data/bilah_rgb_512
+
+yolo:
+  model_path: weights/yolo_bilah_best.onnx   # or .pt
+  target_classes: ["bilah"]
+  conf_thres: 0.10
+  iou_thres: 0.45
+  out_size: 512
+
+run:
+  out_dir: .

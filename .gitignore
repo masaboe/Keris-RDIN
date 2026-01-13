@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Data / outputs (do not commit private data)
+data/raw_images/
+data/no_background/
+data/baselineNoBgWhite/
+data/bilah_rgb_512/
+npy*/
+outputs/
+weights/*.h5
+weights/*.onnx
+weights/*.pt
+
+# OS
+.DS_Store

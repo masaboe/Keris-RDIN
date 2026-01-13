@@ -1,0 +1,23 @@
+# Stage 06 - Evaluate Keris-RDIN
+seed: 42
+
+run:
+  out_dir: outputs/rdin_eval
+
+data:
+  npy:
+    x_test: npyBilah/x_test.npy
+    y_test: npyBilah/y_test.npy
+
+model:
+  input_shape: [512, 512, 3]
+  num_classes: 27
+  backbone_trainable: false
+  block_filters: 768
+  block_repeats: 2
+
+weights:
+  path: outputs/rdin_run/weights/keris_rdin.weights.h5
+
+eval:
+  batch_size: 8

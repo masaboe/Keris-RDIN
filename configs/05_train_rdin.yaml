@@ -1,0 +1,55 @@
+# Stage 05 - Train Keris-RDIN on NPY splits
+seed: 42
+
+run:
+  out_dir: outputs/rdin_run
+
+data:
+  npy:
+    x_train: npyBilah/aug/X_train_aug.npy
+    x_val: npyBilah/x_valid.npy
+    x_test: npyBilah/x_test.npy
+    y_train: npyBilah/aug/y_train_aug.npy
+    y_val: npyBilah/y_valid.npy
+    y_test: npyBilah/y_test.npy
+
+model:
+  input_shape: [512, 512, 3]
+  num_classes: 27
+  backbone_trainable: false
+  block_filters: 768
+  block_repeats: 2
+
+train:
+  batch_size: 8
+  epochs: 100
+  verbose: 1
+  focal_alpha: 0.25
+  focal_gamma: 2.0
+  clipnorm: 1.0
+  topk: 3
+  lr_schedule:
+    initial: 5e-5
+    decay_steps: 100000
+    decay_rate: 0.96
+    staircase: true
+
+callbacks:
+  reduce_on_plateau:
+    monitor: val_loss
+    mode: min
+    patience: 4
+    factor: 0.5
+    min_lr: 1e-6
+    cooldown: 2
+    verbose: 1
+  early_stopping:
+    monitor: val_loss
+    mode: min
+    patience: 8
+    restore_best_weights: true
+    verbose: 1
+
+outputs:
+  weights: weights/keris_rdin.weights.h5
+  history_json: artifacts/train_history.json

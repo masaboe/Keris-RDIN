@@ -1,0 +1,25 @@
+# Core
+numpy>=1.23
+pandas>=2.0
+PyYAML>=6.0
+
+# Image / preprocessing
+opencv-python>=4.8
+Pillow>=10.0
+rembg>=2.0
+
+# Augmentation
+albumentations>=1.3
+
+# YOLO (includes torch dependency)
+ultralytics>=8.0
+
+# Optional (only if you use ONNX runtime explicitly)
+onnxruntime>=1.16
+
+# Training / evaluation
+scikit-learn>=1.3
+matplotlib>=3.7
+
+# TensorFlow (choose the correct build for your platform)
+tensorflow>=2.13

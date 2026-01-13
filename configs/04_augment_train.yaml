@@ -1,0 +1,43 @@
+# Stage 04 - Mask-aware augmentation + balancing (NPY)
+seed: 42
+
+data:
+  x_train: npyBilah/x_train.npy
+  y_train: npyBilah/y_train.npy
+
+augment:
+  seed: 42
+  num_classes: 27
+  out_size: 512
+  white_thr: 245
+  variants_per_image: 2
+
+  geo:
+    hflip_p: 0.5
+    ssr_p: 0.7
+    shift_limit: 0.06
+    scale_limit: 0.06
+    rotate_limit: 5
+    persp_p: 0.2
+    persp_scale_min: 0.02
+    persp_scale_max: 0.04
+
+  photo:
+    bc_p: 0.5
+    brightness_limit: 0.2
+    contrast_limit: 0.2
+    blur_p: 0.2
+    blur_k: 3
+    noise_p: 0.2
+    noise_var: [10.0, 50.0]
+
+  balance:
+    enabled: true
+    target: max
+
+run:
+  out_dir: npyBilah/aug
+
+outputs:
+  x_train_aug: X_train_aug.npy
+  y_train_aug: y_train_aug.npy

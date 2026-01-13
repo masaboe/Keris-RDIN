@@ -1,0 +1,18 @@
+# Stage 03a - Train YOLOv8 (bilah detector)
+seed: 42
+
+yolo:
+  # e.g., yolov8n.pt, yolov8s.pt, or a custom .pt checkpoint
+  model: yolov8n.pt
+  data_yaml: configs/yolo_bilah.yaml  # <-- you must provide Ultralytics data yaml
+  epochs: 300
+  imgsz: 512
+  batch: 16
+  optimizer: AdamW
+  lr0: 5e-4
+  lrf: 0.01
+  dropout: 0.1
+  seed: 42
+  project: runs
+  name: bilah_det
+  device: null  # e.g. 0 or "cpu"

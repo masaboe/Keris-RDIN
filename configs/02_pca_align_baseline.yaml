@@ -1,0 +1,12 @@
+# Stage 02 - PCA-based vertical alignment + baseline normalization
+seed: 42
+
+data:
+  input_dir: data/no_background
+  output_dir: data/baselineNoBgWhite
+
+params:
+  target_size: 512
+
+run:
+  out_dir: .
